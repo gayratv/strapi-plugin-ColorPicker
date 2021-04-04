@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testflds",
+  "info": {
+    "name": "testfld"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "boolFld": {
+      "type": "boolean"
+    },
+    "color": {
+      "type": "colorpicker",
+      "columnType": "string"
+    }
+  }
+}
