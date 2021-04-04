@@ -51,7 +51,25 @@
       "type": "enumeration",
       "enum": [
         "_1st",
-        "_2nd"
+        "_2nd",
+        "_3rd",
+        "_4th",
+        "_5th",
+        "_6th",
+        "_7th",
+        "_8th",
+        "_9th",
+        "_10th",
+        "_11th",
+        "_12th",
+        "_13th",
+        "_14th",
+        "_15th",
+        "_16th",
+        "_17th",
+        "_18th",
+        "_19th",
+        "_20th"
       ]
     },
     "opening_hours": {
@@ -77,8 +95,11 @@
       "via": "restaurants"
     },
     "reviews": {
-      "via": "restaurant",
-      "collection": "review"
+      "collection": "review",
+      "via": "restaurant"
+    },
+    "boolFld": {
+      "type": "boolean"
     }
   }
 }

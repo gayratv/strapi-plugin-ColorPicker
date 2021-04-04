@@ -26,8 +26,8 @@
       "via": "review"
     },
     "restaurant": {
-      "model": "restaurant",
-      "via": "reviews"
+      "via": "reviews",
+      "model": "restaurant"
     },
     "note": {
       "type": "integer"
