@@ -1,0 +1,41 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:redux-saga/recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "redux-saga", "react-hooks", "import", "jsx-a11y", "prettier"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "globals": {
+    "strapi": true
+  },
+  "settings": {
+    "react": {
+      "version": "16.5.2"
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": 0,
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "react/jsx-filename-extension" : 0
+
+  }
+}

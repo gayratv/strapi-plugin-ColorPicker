@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "histories",
+  "info": {
+    "name": "histories"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "attributes2": {
+      "type": "string"
+    },
+    "contenttype": {
+      "type": "string"
+    },
+    "author": {
+      "type": "json"
+    },
+    "before": {
+      "type": "json"
+    },
+    "after": {
+      "type": "json"
+    }
+  }
+}

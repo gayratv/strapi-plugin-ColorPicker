@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "likes",
+  "info": {
+    "name": "like"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "author": {
+      "plugin": "admin",
+      "model": "user"
+    },
+    "review": {
+      "via": "likes",
+      "model": "review"
+    }
+  }
+}
