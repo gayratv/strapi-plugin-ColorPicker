@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "name": "review",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "string"
+    },
+    "default": {
+      "type": "integer"
+    },
+    "author": {
+      "plugin": "admin",
+      "model": "user"
+    },
+    "likes": {
+      "collection": "like",
+      "via": "review"
+    },
+    "restaurant": {
+      "via": "reviews",
+      "model": "restaurant"
+    },
+    "note": {
+      "type": "integer"
+    }
+  }
+}
