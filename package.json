@@ -6,6 +6,7 @@
   "scripts": {
     "develop": "strapi develop",
     "develop-clean": "rimraf ./build ./.cache & strapi develop",
+    "clean": "rimraf ./build ./.cache ",
     "developw": "strapi develop --watch-admin",
     "start": "strapi start",
     "build": "strapi build",
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "knex": "0.21.18",
+    "react-checkbox-tree": "^1.6.0",
     "react-color": "^2.19.3",
     "sqlite3": "5.0.0",
     "strapi": "3.5.4",
