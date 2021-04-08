@@ -11,7 +11,8 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "clean-nm": "rimraf node_modules "
   },
   "devDependencies": {
     "eslint": "^7.23.0",
@@ -44,7 +45,7 @@
     "strapi-utils": "3.5.4"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Gayrat"
   },
   "strapi": {
     "uuid": "9df1e731-40b4-4091-84fd-94af95d5086a"

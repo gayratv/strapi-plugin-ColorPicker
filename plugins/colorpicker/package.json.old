@@ -16,11 +16,14 @@
     "prop-types": "^15.7.2",
     "@buffetjs/styles" : "^3.3.4",
     "@buffetjs/core": "^3.3.4",
-    "react-checkbox-tree": "^1.6.0"
+    "react-checkbox-tree": "^1.6.0",
   },
-
+  "peerDepOld" : {
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3"
+  },
   "author": {
-    "name": "Gayrat",
+    "name": "A Strapi developer",
     "email": "",
     "url": ""
   },

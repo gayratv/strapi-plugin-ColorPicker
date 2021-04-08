@@ -3,8 +3,9 @@ import CheckboxTree from "react-checkbox-tree";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import styled from "styled-components";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+// import "./fa_font.css";
 
 import { nodes } from "./data";
 
@@ -13,16 +14,17 @@ const Title = styled.h5`
   color: #333740;
 `;
 
-const FontAWS = styled.span`
-  font-family: "Font Awesome 5 Free" !important;
-  font-weight: 900 !important;
-  content: "\f007";
+// eslint-disable-next-line no-unused-vars
+const FaWau2 = styled.p.attrs((props) => ({
+  className: "fas",
+}))`
+  &::before {
+    content: "\f0f9";
+  }
 `;
-const FontAWS2 = styled.span`
-  &:before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f007";
+const FaWau = styled.i`
+  &::before {
+    content: "\f0f9";
   }
 `;
 
@@ -39,13 +41,13 @@ class CheckBoxTree extends React.Component {
   render() {
     return (
       <div>
-        <Title>Checkbox Tree U+02191 &#8593; &uarr; \2191</Title>
-        {/* <FontAWS>&#61447; &#xf007; &#xf1ea; </FontAWS> */}
-        {/* <FontAWS>{"&#61447; &#xf007; &#xf1ea; uf007 "}</FontAWS> */}
-        {/* <FontAWS>{`String${String.fromCharCode(61447)}String`}</FontAWS> */}
-        {/* <FontAWS>{"U \u00f3 \uf007 U"}</FontAWS> */}
-        E<FontAWS2 />E{/* <FontAwesomeIcon icon={["fal", "coffee"]} /> */}
-        <FontAwesomeIcon icon={faCoffee} />
+        <Title>Checkbox Tree </Title>
+        <p>
+          <span className="react-checkbox-tree rct-icons-fa4">
+            H<span className="rct-icon   rct-icon-uncheck" />H
+          </span>
+        </p>
+        E<FaWau2 />E<FaWau className="fas" />
         <CheckboxTree
           nodes={nodes}
           checked={this.state.checked}

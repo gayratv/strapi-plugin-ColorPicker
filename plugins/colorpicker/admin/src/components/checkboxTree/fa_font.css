@@ -1,0 +1,111 @@
+
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+.fas {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 900;
+}
+.far {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 400;
+}
+.fal {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300;
+}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 400;
+}
+
+.fad {
+    position: relative;
+    font-family: 'Font Awesome 5 Duotone';
+    font-weight: 900;
+}
+
+.fad:before {
+    position: absolute;
+    color: var(--fa-primary-color, inherit);
+    opacity: 1;
+    opacity: var(--fa-primary-opacity, 1);
+}
+
+.fad:after {
+    color: var(--fa-secondary-color, inherit);
+    opacity: 0.4;
+    opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+
+
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.eot");
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.woff2") format("woff2"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.woff") format("woff"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.ttf") format("truetype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+   
+}
+
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.eot");
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.woff2") format("woff2"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.woff") format("woff"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.ttf") format("truetype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+}
+
+
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    font-style: normal;
+    font-weight: 300;
+    font-display: block;
+    
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-light-300.eot");
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-light-300.eot?#iefix") format("embedded-opentype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-light-300.woff2") format("woff2"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-light-300.woff") format("woff"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-light-300.ttf") format("truetype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-light-300.svg#fontawesome") format("svg");
+
+}
+
+
+
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.eot");
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.woff2") format("woff2"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.woff") format("woff"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.ttf") format("truetype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+
+
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Duotone';
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-duotone-900.eot");
+    src: url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-duotone-900.eot?#iefix") format("embedded-opentype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-duotone-900.woff2") format("woff2"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-duotone-900.woff") format("woff"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-duotone-900.ttf") format("truetype"), url("https://pro.fontawesome.com/releases/v5.15.3/webfonts/fa-duotone-900.svg#fontawesome") format("svg");
+
+}
