@@ -6,6 +6,7 @@ import lifecycles from "./lifecycles";
 import trads from "./translations";
 import ColorPicker from "./components/colorPicker";
 import Toggle from "./components/Toggle";
+import GmailTreeView from "./components/treeComponent";
 
 export default (strapi) => {
   const pluginDescription =
@@ -54,6 +55,7 @@ export default (strapi) => {
   //  { type, Component }
   strapi.registerField({ type: "colorpicker", Component: ColorPicker });
   strapi.registerField({ type: "bool", Component: Toggle });
+  strapi.registerField({ type: "treecheckbox", Component: GmailTreeView });
 
   return strapi.registerPlugin(plugin);
 };

@@ -15,8 +15,13 @@
     "react": "^16.5.2",
     "prop-types": "^15.7.2",
     "@buffetjs/styles" : "^3.3.4",
-    "@buffetjs/core": "^3.3.4"
-  },
+    "@buffetjs/core": "^3.3.4",
+
+    "@material-ui/core": "latest",
+    "@material-ui/lab": "latest",
+    "@material-ui/icons": "latest"
+
+},
   "author": {
     "name": "A Strapi developer",
     "email": "",
