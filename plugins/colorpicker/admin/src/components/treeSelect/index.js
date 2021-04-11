@@ -6,7 +6,7 @@ import { gData } from "./dataUtil";
 
 console.log("TreeData:", gData);
 
-class Demo extends React.Component {
+class TreeCheckbox extends React.Component {
   state = {
     value: "11",
     // value: ['0-0-0-0-value', '0-0-0-1-value', '0-0-0-2-value'],
@@ -108,4 +108,4 @@ class Demo extends React.Component {
   }
 }
 
-export default Demo;
+export default TreeCheckbox;
