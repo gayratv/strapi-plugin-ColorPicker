@@ -1,0 +1,13 @@
+.rc-tree-select-multiple .rc-tree-select-selector .rc-tree-select-selection-item {
+  background: none;
+}
+
+.rc-tree-select {
+  font-size: 1.5rem;
+  font-family: "Lato";
+
+}
+
+.rc-tree-select-multiple .rc-tree-select-selector .rc-tree-select-selection-search-input  {
+  background: none;
+}
