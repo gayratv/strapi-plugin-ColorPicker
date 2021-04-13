@@ -16,7 +16,8 @@
     "prop-types": "^15.7.2",
     "@buffetjs/styles" : "^3.3.4",
     "@buffetjs/core": "^3.3.4",
-    "rc-tree-select" : "latest"
+    "rc-tree-select" : "latest",
+    "strapi-plugin-content-manager": "latest"
   },
   "author": {
     "name": "A Strapi developer",

@@ -11,7 +11,12 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "copy": "copyfiles -f ./node_modules/strapi-plugin-content-manager/admin/src/components/Inputs/index.js ./extensions/content-manager/admin/src/components/Inputs",
+    "copy2": "copyfiles -f -a ./node_modules/strapi-plugin-content-manager/admin/src/containers/EditViewDataManagerProvider/*.*    ./extensions/content-manager/admin/src/containers/EditViewDataManagerProvider/",
+    "copy3": "copyfiles -f -a ./node_modules/strapi-plugin-content-manager/admin/src/containers/EditViewDataManagerProvider/utils/*.*    ./extensions/content-manager/admin/src/containers/EditViewDataManagerProvider/utils",
+    "copy4": "copyfiles -f -a ./node_modules/strapi-plugin-content-manager/admin/src/containers/EditView/*.*    ./extensions/content-manager/admin/src/containers/EditView"
+
   },
   "devDependencies": {
     "babel-eslint": "^10.0.0",
