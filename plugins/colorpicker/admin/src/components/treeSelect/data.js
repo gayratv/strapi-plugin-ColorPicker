@@ -17,10 +17,20 @@ export const simpleTreeDataInitial = [
   { key: 1, pId: 0, label: "smpTree a", value: "1" },
   { key: 11, pId: 1, label: "smpTree a12", value: "2", disabled: true },
   { key: 12, pId: 11, label: "smpTree a00", value: "3", selectable: false },
-  { key: 2, pId: 0, label: "smpTree b", value: "4" },
+  {
+    key: 2,
+    pId: 0,
+    label: "smpTree b",
+    value: "4",
+    selectable: false,
+    disabled: true,
+  },
   { key: 20, pId: 2, label: "smpTree b10", value: "5" },
   { key: 21, pId: 2, label: "smpTree b1", value: "6" },
   { key: 22, pId: 2, label: "smpTree b12", value: "7" },
+  { key: 30, pId: 0, label: "дерево 3", value: "8" },
+  { key: 31, pId: 30, label: "дерево 31", value: "31" },
+  { key: 32, pId: 30, label: "дерево 32", value: "32" },
 ];
 
 // treeNodes data Array, if set it then you need not to construct children TreeNode.

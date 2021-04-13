@@ -76,7 +76,7 @@ class TreeCheckbox extends React.Component {
           treeLine
           notFoundContent="Не найдено"
           allowClear
-          maxTagTextLength={15}
+          maxTagTextLength={25}
           maxTagCount={10}
           multiple
           inputValue={null}
