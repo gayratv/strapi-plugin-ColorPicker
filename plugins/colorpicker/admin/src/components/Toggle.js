@@ -7,7 +7,7 @@ const capitalize = (string) => {
 };
 
 export default ({ onChange, name, value }) => {
-  console.log("Toogle props value : ", value);
+  // console.log("Toogle props value : ", value);
 
   return (
     <Padded top bottom left right size="md">
