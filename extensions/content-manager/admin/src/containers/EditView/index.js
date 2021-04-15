@@ -1,6 +1,6 @@
-import React, { memo, useCallback, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { get } from 'lodash';
+import React, { memo, useCallback, useMemo } from "react";
+import PropTypes from "prop-types";
+import { get } from "lodash";
 import {
   BackHeader,
   BaselineAlignment,
@@ -10,39 +10,54 @@ import {
   useUser,
   useUserPermissions,
   useGlobalContext,
-} from 'strapi-helper-plugin';
-import { Padded } from '@buffetjs/core';
-import pluginId from '../../pluginId';
-import pluginPermissions from '../../permissions';
-import Container from '../../components/Container';
-import DynamicZone from '../../components/DynamicZone';
-import FormWrapper from '../../components/FormWrapper';
-import FieldComponent from '../../components/FieldComponent';
-import Inputs from '../../components/Inputs';
-import SelectWrapper from '../../components/SelectWrapper';
-import { generatePermissionsObject, getInjectedComponents } from '../../utils';
-import CollectionTypeFormWrapper from '../CollectionTypeFormWrapper';
-import EditViewDataManagerProvider from '../EditViewDataManagerProvider';
-import SingleTypeFormWrapper from '../SingleTypeFormWrapper';
-import Header from './Header';
-import { createAttributesLayout, getFieldsActionMatchingPermissions } from './utils';
-import { LinkWrapper, SubWrapper } from './components';
-import DeleteLink from './DeleteLink';
-import InformationCard from './InformationCard';
+} from "strapi-helper-plugin";
+import { Padded } from "@buffetjs/core";
+import pluginId from "../../pluginId";
+import pluginPermissions from "../../permissions";
+import Container from "../../components/Container";
+import DynamicZone from "../../components/DynamicZone";
+import FormWrapper from "../../components/FormWrapper";
+import FieldComponent from "../../components/FieldComponent";
+import Inputs from "../../components/Inputs";
+import SelectWrapper from "../../components/SelectWrapper";
+import { generatePermissionsObject, getInjectedComponents } from "../../utils";
+import CollectionTypeFormWrapper from "../CollectionTypeFormWrapper";
+import EditViewDataManagerProvider from "../EditViewDataManagerProvider";
+import SingleTypeFormWrapper from "../SingleTypeFormWrapper";
+import Header from "./Header";
+import {
+  createAttributesLayout,
+  getFieldsActionMatchingPermissions,
+} from "./utils";
+import { LinkWrapper, SubWrapper } from "./components";
+import DeleteLink from "./DeleteLink";
+import InformationCard from "./InformationCard";
+import { TestContext } from "./testContext";
 
 /* eslint-disable  react/no-array-index-key */
-const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => {
+const EditView = ({
+  isSingleType,
+  goBack,
+  layout,
+  slug,
+  state,
+  id,
+  origin,
+}) => {
   const { currentEnvironment, plugins } = useGlobalContext();
   // Permissions
-  const viewPermissions = useMemo(() => generatePermissionsObject(slug), [slug]);
-  const { allowedActions, isLoading: isLoadingForPermissions } = useUserPermissions(
-    viewPermissions
-  );
+  const viewPermissions = useMemo(() => generatePermissionsObject(slug), [
+    slug,
+  ]);
+  const {
+    allowedActions,
+    isLoading: isLoadingForPermissions,
+  } = useUserPermissions(viewPermissions);
   const userPermissions = useUser();
 
   // Here in case of a 403 response when fetching data we will either redirect to the previous page
   // Or to the homepage if there's no state in the history stack
-  const from = get(state, 'from', '/');
+  const from = get(state, "from", "/");
 
   const {
     createActionAllowedFields,
@@ -58,9 +73,12 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
   }, [isSingleType]);
 
   const configurationsURL = `/plugins/${pluginId}/${
-    isSingleType ? 'singleType' : 'collectionType'
+    isSingleType ? "singleType" : "collectionType"
   }/${slug}/configurations/edit`;
-  const currentContentTypeLayoutData = useMemo(() => get(layout, ['contentType'], {}), [layout]);
+  const currentContentTypeLayoutData = useMemo(
+    () => get(layout, ["contentType"], {}),
+    [layout]
+  );
 
   const DataManagementWrapper = useMemo(
     () => (isSingleType ? SingleTypeFormWrapper : CollectionTypeFormWrapper),
@@ -68,9 +86,9 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
   );
 
   // Check if a block is a dynamic zone
-  const isDynamicZone = useCallback(block => {
-    return block.every(subBlock => {
-      return subBlock.every(obj => obj.fieldSchema.type === 'dynamiczone');
+  const isDynamicZone = useCallback((block) => {
+    return block.every((subBlock) => {
+      return subBlock.every((obj) => obj.fieldSchema.type === "dynamiczone");
     });
   }, []);
 
@@ -91,7 +109,13 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
 
   // TODO: create a hook to handle/provide the permissions this should be done for the i18n feature
   return (
-    <DataManagementWrapper allLayoutData={layout} from={from} slug={slug} id={id} origin={origin}>
+    <DataManagementWrapper
+      allLayoutData={layout}
+      from={from}
+      slug={slug}
+      id={id}
+      origin={origin}
+    >
       {({
         componentsDataStructure,
         contentTypeDataStructure,
@@ -128,11 +152,15 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
             status={status}
             updateActionAllowedFields={updateActionAllowedFields}
           >
+            <TestContext />
             <BackHeader onClick={goBack} />
             <Container className="container-fluid">
               <Header allowedActions={allowedActions} />
               <div className="row" style={{ paddingTop: 3 }}>
-                <div className="col-md-12 col-lg-9" style={{ marginBottom: 13 }}>
+                <div
+                  className="col-md-12 col-lg-9"
+                  style={{ marginBottom: 13 }}
+                >
                   {formattedContentTypeLayout.map((block, blockIndex) => {
                     if (isDynamicZone(block)) {
                       const {
@@ -140,10 +168,15 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
                           0: { name, fieldSchema, metadatas },
                         },
                       } = block;
-                      const baselineAlignementSize = blockIndex === 0 ? '3px' : '0';
+                      const baselineAlignementSize =
+                        blockIndex === 0 ? "3px" : "0";
 
                       return (
-                        <BaselineAlignment key={blockIndex} top size={baselineAlignementSize}>
+                        <BaselineAlignment
+                          key={blockIndex}
+                          top
+                          size={baselineAlignementSize}
+                        >
                           <DynamicZone
                             name={name}
                             fieldSchema={fieldSchema}
@@ -159,11 +192,20 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
                           return (
                             <div className="row" key={fieldsBlockIndex}>
                               {fieldsBlock.map(
-                                ({ name, size, fieldSchema, metadatas }, fieldIndex) => {
-                                  const isComponent = fieldSchema.type === 'component';
+                                (
+                                  { name, size, fieldSchema, metadatas },
+                                  fieldIndex
+                                ) => {
+                                  const isComponent =
+                                    fieldSchema.type === "component";
 
                                   if (isComponent) {
-                                    const { component, max, min, repeatable = false } = fieldSchema;
+                                    const {
+                                      component,
+                                      max,
+                                      min,
+                                      repeatable = false,
+                                    } = fieldSchema;
                                     const componentUid = fieldSchema.component;
 
                                     return (
@@ -205,9 +247,12 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
                 <div className="col-md-12 col-lg-3">
                   <InformationCard />
                   <Padded size="smd" top />
-                  {currentContentTypeLayoutData.layouts.editRelations.length > 0 && (
-                    <SubWrapper style={{ padding: '0 20px 1px', marginBottom: '25px' }}>
-                      <div style={{ paddingTop: '22px' }}>
+                  {currentContentTypeLayoutData.layouts.editRelations.length >
+                    0 && (
+                    <SubWrapper
+                      style={{ padding: "0 20px 1px", marginBottom: "25px" }}
+                    >
+                      <div style={{ paddingTop: "22px" }}>
                         {currentContentTypeLayoutData.layouts.editRelations.map(
                           ({ name, fieldSchema, metadatas, queryInfos }) => {
                             return (
@@ -230,7 +275,7 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
                       <CheckPermissions permissions={configurationPermissions}>
                         <LiLink
                           message={{
-                            id: 'app.links.configure-view',
+                            id: "app.links.configure-view",
                           }}
                           icon="layout"
                           url={configurationsURL}
@@ -240,8 +285,8 @@ const EditView = ({ isSingleType, goBack, layout, slug, state, id, origin }) => 
                         />
                       </CheckPermissions>
                       {getInjectedComponents(
-                        'editView',
-                        'right.links',
+                        "editView",
+                        "right.links",
                         plugins,
                         currentEnvironment,
                         slug
