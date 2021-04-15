@@ -6,6 +6,7 @@
   "scripts": {
     "develop": "strapi develop",
     "develop-clean": "rimraf ./build ./.cache & strapi develop",
+    "clean": "rimraf ./build ./.cache ",
     "developw": "strapi develop --watch-admin",
     "start": "strapi start",
     "build": "strapi build",
@@ -14,11 +15,11 @@
 
     "copy": "copyfiles -f ./node_modules/strapi-plugin-content-manager/admin/src/components/SelectWrapper/*.* ./extensions/content-manager/admin/src/components/SelectWrapper",
     "copy5": "copyfiles -f ./node_modules/strapi-plugin-content-manager/admin/src/components/SelectWrapper/utils/*.* ./extensions/content-manager/admin/src/components/SelectWrapper/utils",
-
+    "copy6": "copyfiles -f ./node_modules/strapi-plugin-content-manager/admin/src/components/Inputs/*.* ./extensions/content-manager/admin/src/components/Inputs",
+    "copy7": "copyfiles -f ./node_modules/strapi-plugin-content-manager/admin/src/components/Inputs/utils/*.* ./extensions/content-manager/admin/src/components/Inputs/utils",
     "copy2": "copyfiles -f -a ./node_modules/strapi-plugin-content-manager/admin/src/containers/EditViewDataManagerProvider/*.*    ./extensions/content-manager/admin/src/containers/EditViewDataManagerProvider/",
     "copy3": "copyfiles -f -a ./node_modules/strapi-plugin-content-manager/admin/src/containers/EditViewDataManagerProvider/utils/*.*    ./extensions/content-manager/admin/src/containers/EditViewDataManagerProvider/utils",
     "copy4": "copyfiles -f -a ./node_modules/strapi-plugin-content-manager/admin/src/containers/EditView/*.*    ./extensions/content-manager/admin/src/containers/EditView"
-
 
   },
   "devDependencies": {
