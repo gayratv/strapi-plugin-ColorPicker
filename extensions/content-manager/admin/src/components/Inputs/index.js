@@ -5,6 +5,7 @@ import isEqual from "react-fast-compare";
 import { useIntl } from "react-intl";
 import { Inputs as InputsIndex } from "@buffetjs/custom";
 import { NotAllowedInput, useStrapi } from "strapi-helper-plugin";
+
 import { useContentTypeLayout } from "../../hooks";
 import { getFieldName } from "../../utils";
 import InputJSONWithErrors from "../InputJSONWithErrors";
@@ -20,6 +21,7 @@ import {
   VALIDATIONS_TO_OMIT,
 } from "./utils";
 import EditViewDataManagerContext from "../../contexts/EditViewDataManager";
+// import EditViewDataManagerContext from "strapi-plugin-content-manager/admin/src/contexts/EditViewDataManager";
 
 function Inputs({
   allowedFields,
