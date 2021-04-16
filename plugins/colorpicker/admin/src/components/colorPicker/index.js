@@ -5,6 +5,8 @@ import { ChromePicker } from "react-color";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+// import EditViewDataManagerContext from "strapi-plugin-content-manager/admin/src/contexts/EditViewDataManager";
+
 // STYLES .....
 
 const Title = styled.h5`
@@ -34,9 +36,16 @@ const Cover = styled.div`
 `;
 
 const ColorPicker = (props) => {
+  console.log("ColorPicker = (props) : ", props.contextData);
   const { value, onChange } = props;
   const [showPicker, setShowPicker] = useState(false);
   const [color, setColor] = useState(value || "#FFFFFF");
+
+  // console.log("EditViewDataManagerContext ", EditViewDataManagerContext);
+  // const context = React.useContext(EditViewDataManagerContext);
+  // console.log("context ", context); // undefined
+  // console.log("Inputs initialData : ", context.initialData);
+  // console.log("Inputs modifiedData : ", context.modifiedData);
 
   /**
    * Makes the color value available to the document for database update

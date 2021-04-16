@@ -38,9 +38,7 @@ function Inputs({
   fieldSchema,
   metadatas,
 }) {
-  const context = React.useContext(EditViewDataManagerContext);
-  console.log("Inputs modifiedData : ", context.modifiedData);
-  console.log("Inputs initialData : ", context.initialData);
+  console.log("Inputs keys/value : ", keys, value);
 
   const {
     strapi: { fieldApi },
@@ -217,6 +215,45 @@ function Inputs({
     );
   }
 
+  if (keys === "color") {
+    const context = React.useContext(EditViewDataManagerContext);
+    // console.log("Inputs modifiedData : ", context.modifiedData);
+    // console.log("Inputs initialData : ", context.initialData);
+
+    return (
+      <InputsIndex
+        {...metadatas}
+        autoComplete="new-password"
+        autoFocus={autoFocus}
+        disabled={shouldDisableField}
+        error={errorMessage}
+        inputDescription={description}
+        description={description}
+        contentTypeUID={currentContentTypeLayout.uid}
+        customInputs={{
+          json: InputJSONWithErrors,
+          wysiwyg: WysiwygWithErrors,
+          uid: InputUID,
+          ...otherFields,
+        }}
+        multiple={fieldSchema.multiple || false}
+        attribute={fieldSchema}
+        name={keys}
+        onBlur={onBlur}
+        onChange={onChange}
+        options={options}
+        step={step}
+        type={inputType}
+        validations={validations}
+        value={inputValue}
+        withDefaultValue={false}
+        contextData={{
+          modifiedData: context.modifiedData,
+          initialData: context.initialData,
+        }}
+      />
+    );
+  }
   return (
     <InputsIndex
       {...metadatas}
