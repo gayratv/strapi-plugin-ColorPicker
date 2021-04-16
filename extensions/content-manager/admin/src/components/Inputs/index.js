@@ -1,16 +1,16 @@
-import React, { memo, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { get, omit, take } from 'lodash';
-import isEqual from 'react-fast-compare';
-import { useIntl } from 'react-intl';
-import { Inputs as InputsIndex } from '@buffetjs/custom';
-import { NotAllowedInput, useStrapi } from 'strapi-helper-plugin';
-import { useContentTypeLayout } from '../../hooks';
-import { getFieldName } from '../../utils';
-import InputJSONWithErrors from '../InputJSONWithErrors';
-import SelectWrapper from '../SelectWrapper';
-import WysiwygWithErrors from '../WysiwygWithErrors';
-import InputUID from '../InputUID';
+import React, { memo, useMemo } from "react";
+import PropTypes from "prop-types";
+import { get, omit, take } from "lodash";
+import isEqual from "react-fast-compare";
+import { useIntl } from "react-intl";
+import { Inputs as InputsIndex } from "@buffetjs/custom";
+import { NotAllowedInput, useStrapi } from "strapi-helper-plugin";
+import { useContentTypeLayout } from "../../hooks";
+import { getFieldName } from "../../utils";
+import InputJSONWithErrors from "../InputJSONWithErrors";
+import SelectWrapper from "../SelectWrapper";
+import WysiwygWithErrors from "../WysiwygWithErrors";
+import InputUID from "../InputUID";
 import {
   connect,
   generateOptions,
@@ -18,7 +18,8 @@ import {
   getStep,
   select,
   VALIDATIONS_TO_OMIT,
-} from './utils';
+} from "./utils";
+import EditViewDataManagerContext from "../../contexts/EditViewDataManager";
 
 function Inputs({
   allowedFields,
@@ -35,20 +36,28 @@ function Inputs({
   fieldSchema,
   metadatas,
 }) {
+  const context = React.useContext(EditViewDataManagerContext);
+  console.log("Inputs modifiedData : ", context.modifiedData);
+  console.log("Inputs initialData : ", context.initialData);
+
   const {
     strapi: { fieldApi },
   } = useStrapi();
   const { contentType: currentContentTypeLayout } = useContentTypeLayout();
   const { formatMessage } = useIntl();
 
-  const disabled = useMemo(() => !get(metadatas, 'editable', true), [metadatas]);
-  const type = fieldSchema.type;
+  const disabled = useMemo(() => !get(metadatas, "editable", true), [
+    metadatas,
+  ]);
+  const { type } = fieldSchema;
 
   const errorId = useMemo(() => {
-    return get(formErrors, [keys, 'id'], null);
+    return get(formErrors, [keys, "id"], null);
   }, [formErrors, keys]);
 
-  const errorMessage = errorId ? formatMessage({ id: errorId, defaultMessage: errorId }) : null;
+  const errorMessage = errorId
+    ? formatMessage({ id: errorId, defaultMessage: errorId })
+    : null;
 
   const fieldName = useMemo(() => {
     return getFieldName(keys);
@@ -58,7 +67,7 @@ function Inputs({
     const inputValidations = omit(
       fieldSchema,
       shouldNotRunValidations
-        ? [...VALIDATIONS_TO_OMIT, 'required', 'minLength']
+        ? [...VALIDATIONS_TO_OMIT, "required", "minLength"]
         : VALIDATIONS_TO_OMIT
     );
 
@@ -75,13 +84,15 @@ function Inputs({
     return inputValidations;
   }, [fieldSchema, shouldNotRunValidations]);
 
-  const isRequired = useMemo(() => get(validations, ['required'], false), [validations]);
+  const isRequired = useMemo(() => get(validations, ["required"], false), [
+    validations,
+  ]);
 
   const isChildOfDynamicZone = useMemo(() => {
-    const attributes = get(currentContentTypeLayout, ['attributes'], {});
-    const foundAttributeType = get(attributes, [fieldName[0], 'type'], null);
+    const attributes = get(currentContentTypeLayout, ["attributes"], {});
+    const foundAttributeType = get(attributes, [fieldName[0], "type"], null);
 
-    return foundAttributeType === 'dynamiczone';
+    return foundAttributeType === "dynamiczone";
   }, [currentContentTypeLayout, fieldName]);
 
   const inputType = useMemo(() => {
@@ -90,7 +101,7 @@ function Inputs({
 
   const inputValue = useMemo(() => {
     // Fix for input file multipe
-    if (type === 'media' && !value) {
+    if (type === "media" && !value) {
       return [];
     }
 
@@ -102,7 +113,7 @@ function Inputs({
   }, [type]);
 
   const isUserAllowedToEditField = useMemo(() => {
-    const joinedName = fieldName.join('.');
+    const joinedName = fieldName.join(".");
 
     if (allowedFields.includes(joinedName)) {
       return true;
@@ -115,7 +126,7 @@ function Inputs({
     const isChildOfComponent = fieldName.length > 1;
 
     if (isChildOfComponent) {
-      const parentFieldName = take(fieldName, fieldName.length - 1).join('.');
+      const parentFieldName = take(fieldName, fieldName.length - 1).join(".");
 
       return allowedFields.includes(parentFieldName);
     }
@@ -124,7 +135,7 @@ function Inputs({
   }, [allowedFields, fieldName, isChildOfDynamicZone]);
 
   const isUserAllowedToReadField = useMemo(() => {
-    const joinedName = fieldName.join('.');
+    const joinedName = fieldName.join(".");
 
     if (readableFields.includes(joinedName)) {
       return true;
@@ -137,7 +148,7 @@ function Inputs({
     const isChildOfComponent = fieldName.length > 1;
 
     if (isChildOfComponent) {
-      const parentFieldName = take(fieldName, fieldName.length - 1).join('.');
+      const parentFieldName = take(fieldName, fieldName.length - 1).join(".");
 
       return readableFields.includes(parentFieldName);
     }
@@ -151,7 +162,8 @@ function Inputs({
 
   const shouldDisableField = useMemo(() => {
     if (!isCreatingEntry) {
-      const doesNotHaveRight = isUserAllowedToReadField && !isUserAllowedToEditField;
+      const doesNotHaveRight =
+        isUserAllowedToReadField && !isUserAllowedToEditField;
 
       if (doesNotHaveRight) {
         return true;
@@ -161,12 +173,17 @@ function Inputs({
     }
 
     return disabled;
-  }, [disabled, isCreatingEntry, isUserAllowedToEditField, isUserAllowedToReadField]);
-
-  const options = useMemo(() => generateOptions(fieldSchema.enum || [], isRequired), [
-    fieldSchema,
-    isRequired,
+  }, [
+    disabled,
+    isCreatingEntry,
+    isUserAllowedToEditField,
+    isUserAllowedToReadField,
   ]);
+
+  const options = useMemo(
+    () => generateOptions(fieldSchema.enum || [], isRequired),
+    [fieldSchema, isRequired]
+  );
 
   const otherFields = useMemo(() => {
     return fieldApi.getFields();
@@ -182,7 +199,7 @@ function Inputs({
     return <NotAllowedInput label={metadatas.label} />;
   }
 
-  if (type === 'relation') {
+  if (type === "relation") {
     return (
       <div key={keys}>
         <SelectWrapper
