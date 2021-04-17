@@ -41,7 +41,7 @@ export function calcTotal(x = 3, y = 2, z = 1) {
   return rec(z + 1);
 }
 export const gData = generateData();
-console.log("Общее количество узлов (одно дерево)：", calcTotal());
+// console.log("Общее количество узлов (одно дерево)：", calcTotal());
 
 export function generateTreeNodes(treeNode) {
   const arr = [];
