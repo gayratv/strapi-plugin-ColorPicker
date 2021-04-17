@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_restaurant_attributes",
+  "info": {
+    "name": "attributes",
+    "icon": "atlas"
+  },
+  "options": {},
+  "attributes": {
+    "have_garden": {
+      "type": "boolean"
+    },
+    "Attribute_A": {
+      "type": "string"
+    },
+    "attribute_b": {
+      "type": "string"
+    }
+  }
+}

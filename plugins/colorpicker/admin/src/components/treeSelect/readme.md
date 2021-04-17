@@ -7,3 +7,4 @@ http://react-component.github.io/tree-select/
 
 http://react-component.github.io/tree-select/examples/filter.html
 
+Сейчас поправил стили - дерево рабочее

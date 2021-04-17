@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_restaurant_exp_cheaps",
+  "info": {
+    "name": "Self service",
+    "icon": "adjust",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "self_service_description": {
+      "type": "string"
+    },
+    "have_gardem": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

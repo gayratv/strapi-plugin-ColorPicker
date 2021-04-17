@@ -33,6 +33,8 @@ export const simpleTreeDataInitial = [
   { key: 32, pId: 30, label: "дерево 32", value: "32" },
 ];
 
+// console.log(JSON.stringify(simpleTreeDataInitial));
+
 // treeNodes data Array, if set it then you need not to construct children TreeNode.
 // (value should be unique across the whole array)
 // array<{value,label,children, [disabled,selectable]}>

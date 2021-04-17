@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_restaurant_names",
+  "info": {
+    "name": "name",
+    "icon": "ambulance"
+  },
+  "options": {},
+  "attributes": {
+    "cheap_name": {
+      "type": "string"
+    }
+  }
+}

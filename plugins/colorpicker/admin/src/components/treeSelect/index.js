@@ -5,6 +5,7 @@ import React from "react";
 import TreeSelect, { SHOW_PARENT } from "rc-tree-select";
 import { gData } from "./dataUtil";
 import { simpleTreeDataInitial } from "./data";
+import { fetchTreeData } from "./fetch";
 
 console.log("TreeData:", gData);
 

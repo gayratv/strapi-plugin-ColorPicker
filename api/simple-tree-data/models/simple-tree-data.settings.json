@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "simple_tree_data",
+  "info": {
+    "name": "simple-tree-data"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "comment": {
+      "type": "string"
+    },
+    "data": {
+      "type": "json"
+    }
+  }
+}
