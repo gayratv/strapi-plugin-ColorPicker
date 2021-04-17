@@ -1,11 +1,11 @@
 // import "../assets/index.less";
 import "rc-tree-select/assets/index.less";
 import "./tree.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TreeSelect, { SHOW_PARENT } from "rc-tree-select";
 import { gData } from "./dataUtil";
 import { simpleTreeDataInitial } from "./data";
-// import { fetchTreeData } from "./fetch";
+import { fetchTreeData } from "./fetch";
 
 // console.log("TreeData:", gData);
 
@@ -40,10 +40,10 @@ const TreeCheckbox = (props) => {
     setState({ value });
   };
 
-  const onSelect = () => {
-    // use onChange instead
-    // console.log(arguments);
-  };
+  /* useEffect(async () => {
+    const res = await fetchTreeData();
+    console.log("fetchTreeData : ", res);
+  }, []); */
 
   const onDataChange = () => {
     const { simpleTreeData } = state;
@@ -87,7 +87,6 @@ const TreeCheckbox = (props) => {
         treeCheckable
         showCheckedStrategy={SHOW_PARENT}
         onChange={onChange}
-        onSelect={onSelect}
         autoClearSearchValue
 
         // treeIcon	show tree icon	bool	false
