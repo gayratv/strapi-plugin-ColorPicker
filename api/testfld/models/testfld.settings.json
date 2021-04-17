@@ -21,8 +21,8 @@
       "columnType": "string"
     },
     "tree": {
-      "type": "tree",
-      "columnType": "json"
+      "type": "treedata",
+      "columnType": "text"
     }
   }
 }

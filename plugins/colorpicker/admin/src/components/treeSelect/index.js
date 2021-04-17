@@ -3,7 +3,8 @@ import "rc-tree-select/assets/index.less";
 import "./tree.css";
 import React, { useEffect, useState } from "react";
 import TreeSelect, { SHOW_PARENT } from "rc-tree-select";
-import { gData } from "./dataUtil";
+import PropTypes from "prop-types";
+// import { gData } from "./dataUtil";
 import { simpleTreeDataInitial } from "./data";
 import { fetchTreeData } from "./fetch";
 
@@ -38,6 +39,9 @@ const TreeCheckbox = (props) => {
     // console.log("onChange", value, this.simpleTreeData);
     console.log("onChange", value);
     setState({ value });
+    props.onChange({
+      target: { name: "tree", value: JSON.stringify(value) },
+    });
   };
 
   useEffect(() => {
@@ -99,6 +103,11 @@ const TreeCheckbox = (props) => {
       </button>
     </div>
   );
+};
+
+TreeCheckbox.propTypes = {
+  value: PropTypes.object,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TreeCheckbox;

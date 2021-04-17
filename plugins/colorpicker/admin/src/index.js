@@ -55,7 +55,7 @@ export default (strapi) => {
   //  { type, Component }
   strapi.registerField({ type: "colorpicker", Component: ColorPicker });
   strapi.registerField({ type: "bool", Component: Toggle });
-  strapi.registerField({ type: "tree", Component: TreeCheckbox });
+  strapi.registerField({ type: "treedata", Component: TreeCheckbox });
 
   return strapi.registerPlugin(plugin);
 };
