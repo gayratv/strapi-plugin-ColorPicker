@@ -28,7 +28,7 @@ const treeDataSimpleMode = {
 
 const TreeCheckbox = (props) => {
   const [state, setState] = useState({
-    // value: "11",
+    value: ["3", "5"],
     simpleTreeData: simpleTreeDataInitial,
   });
 
@@ -45,9 +45,21 @@ const TreeCheckbox = (props) => {
   };
 
   useEffect(() => {
+    if (props.value) {
+      setState({
+        value: JSON.parse(props.value),
+      });
+      console.log("useEffect props.value : ", JSON.parse(props.value));
+    }
+  }, [props.value]);
+
+  useEffect(() => {
     async function fetchData() {
       const res = await fetchTreeData(1);
-      setState({ simpleTreeData: res.data });
+
+      setState({
+        simpleTreeData: JSON.parse(res.data),
+      });
     }
     fetchData();
   }, []);

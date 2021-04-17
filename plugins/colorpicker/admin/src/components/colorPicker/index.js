@@ -34,6 +34,7 @@ const Cover = styled.div`
 `;
 
 const ColorPicker = (props) => {
+  // console.log("ColorPicker : ", props);
   const { value, onChange } = props;
   const [showPicker, setShowPicker] = useState(false);
   const [color, setColor] = useState(value || "#FFFFFF");
