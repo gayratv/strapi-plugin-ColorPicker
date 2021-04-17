@@ -20,17 +20,14 @@ import { request } from "strapi-helper-plugin";
 //   <LoadingIndicator small />
 // *********************
 
-// eslint-disable-next-line import/prefer-default-export
-export const fetchTreeData = async () => {
-  strapi.notification.toggle({
-    type: "warning ",
-    message: "Начинаяю запрос данных",
-    title: "title",
-    uid: "25uid",
-  });
-
+/**
+ *
+ * @param idData
+ * @returns {Promise<*|null>}
+ */
+export const fetchTreeData = async (idData) => {
   try {
-    const results = await request("/simple-tree-data/1", {
+    const results = await request(`/simple-tree-data/${idData}`, {
       method: "GET",
     });
     return results;

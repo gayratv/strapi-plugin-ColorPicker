@@ -40,10 +40,13 @@ const TreeCheckbox = (props) => {
     setState({ value });
   };
 
-  /* useEffect(async () => {
-    const res = await fetchTreeData();
-    console.log("fetchTreeData : ", res);
-  }, []); */
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetchTreeData(1);
+      setState({ simpleTreeData: res.data });
+    }
+    fetchData();
+  }, []);
 
   const onDataChange = () => {
     const { simpleTreeData } = state;

@@ -22,7 +22,7 @@
     },
     "tree": {
       "type": "tree",
-      "columnType": "string"
+      "columnType": "json"
     }
   }
 }
