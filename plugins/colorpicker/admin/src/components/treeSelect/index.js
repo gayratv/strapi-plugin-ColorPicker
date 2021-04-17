@@ -28,7 +28,7 @@ const treeDataSimpleMode = {
 
 const TreeCheckbox = (props) => {
   const [state, setState] = useState({
-    value: ["3", "5"],
+    // value: ["3", "5"],
     simpleTreeData: simpleTreeDataInitial,
   });
 
